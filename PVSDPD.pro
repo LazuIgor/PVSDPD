@@ -13,12 +13,14 @@ INCLUDEPATH +=  ./thirdparty
 
 SOURCES += \
     logger.cpp \
+    fileparser.cpp \
     main.cpp \
     mainwindow.cpp \
     realiselogger.cpp
 
 HEADERS += \
     logger.h \
+    fileparser.h \
     mainwindow.h
 
 FORMS += \
