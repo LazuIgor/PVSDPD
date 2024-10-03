@@ -23,11 +23,16 @@ MainWindow::MainWindow(QWidget *parent)
             {
                 x.push_back(j);
             }
-            QCPGraph graph = QCPGraph(ui->mainPlot->xAxis, ui->mainPlot->yAxis);
-            graph.addData(x, data[i]);
+            //QCPGraph graph = QCPGraph(ui->mainPlot->xAxis, ui->mainPlot->yAxis);
+            //graph.addData(x, data[i]);
             //graphs_.push_back(graph);
 
-            ui->mainPlot->addGraph(graph.keyAxis(), graph.valueAxis());
+            //ui->mainPlot->addGraph(graph.keyAxis(), graph.valueAxis());
+
+            ui->mainPlot->addGraph();
+            ui->mainPlot->graph(i)->setData(x, data[i]);
+            ui->mainPlot->rescaleAxes();
+            ui->mainPlot->replot();
         }
         ui->mainPlot->replot();
 
