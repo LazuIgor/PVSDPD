@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "qcustomplot.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,5 +20,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QVector<QCPGraph> graphs_;
+    QDateTime date_time_start_;
+    QDateTime date_time_finish_;
+
 };
 #endif // MAINWINDOW_H

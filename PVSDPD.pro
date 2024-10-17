@@ -1,11 +1,8 @@
 QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++17
-
-INCLUDEPATH +=  ./thirdparty/qcustomplot
-INCLUDEPATH +=  ./thirdparty
+QMAKE_CXXFLAGS += -Wa,-mbig-obj
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -16,12 +13,14 @@ SOURCES += \
     fileparser.cpp \
     main.cpp \
     mainwindow.cpp \
+    qcustomplot.cpp \
     realiselogger.cpp
 
 HEADERS += \
     logger.h \
     fileparser.h \
-    mainwindow.h
+    mainwindow.h \
+    qcustomplot.h
 
 FORMS += \
     mainwindow.ui

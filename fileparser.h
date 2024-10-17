@@ -1,7 +1,7 @@
 #ifndef FILEPARSER_H
 #define FILEPARSER_H
 #include "QString"
-#include "qcustomplot.h"
+#include "QDateTime"
 
 class Fileparser
 {
@@ -9,7 +9,7 @@ public:
     Fileparser();
 
     QVector<QVector<double>> data_container();
-    void parse(QString filename);
+    void parse(QString filename, QDateTime start, QDateTime finish);
 
 private:
     QVector<QVector<double>> data_container_;

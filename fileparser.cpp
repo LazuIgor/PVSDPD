@@ -6,7 +6,7 @@ Fileparser::Fileparser()
 
 }
 
-void Fileparser::parse(QString filename)
+void Fileparser::parse(QString filename, QDateTime start, QDateTime finish)
 {
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -21,12 +21,22 @@ void Fileparser::parse(QString filename)
     while (!in.atEnd()) {
         QString line = in.readLine();
         QList data = line.split(" ");
-
-        data.pop_front();
-        data.pop_front();
-        for(int index = 0; index <data.length(); index++)
+        QString time = data[0];
+        QString date = data[1];
+        QDateTime dateTime = QDateTime(QDate(date.split(".")[2].toInt(),
+                                             date.split(".")[1].toInt(),
+                                             date.split(".")[0].toInt()),
+                                       QTime(time.split(":")[0].toInt(),
+                                             time.split(":")[1].toInt(),
+                                             time.split(":")[2].toInt()));
+        if(start <= dateTime && dateTime <= finish)
         {
-            data_container_[index].append(data[index].toDouble());
+            data.pop_front();
+            data.pop_front();
+            for(int index = 0; index <data.length(); index++)
+            {
+                data_container_[index].append(data[index].toDouble());
+            }
         }
     }
 }
