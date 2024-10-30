@@ -36,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
             ui->mainPlot->rescaleAxes();
             ui->mainPlot->replot();
         }
+        ui->mainPlot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+        ui->mainPlot->setSelectionRectMode(QCP::srmNone);
         ui->mainPlot->replot();
     });
 
@@ -46,6 +48,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->dateTimeEdit_2, &QDateTimeEdit::dateTimeChanged, this, [=](){
         date_time_finish_ = ui->dateTimeEdit_2->dateTime();
     });
+
+    for (int i = 1; i <= 10; ++i) {
+        QListWidgetItem *item = new QListWidgetItem(QString("Item %1").arg(i));
+        item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+        item->setCheckState(Qt::Unchecked);
+        ui->traceList->addItem(item);
+    }
 
 }
 

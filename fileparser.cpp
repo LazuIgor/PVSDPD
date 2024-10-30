@@ -12,7 +12,7 @@ void Fileparser::parse(QString filename, QDateTime start, QDateTime finish)
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
 
-    for(int i =0; i < 13; i++)
+    for(int i =0; i < 8; i++)
     {
         data_container_.append(QVector<double>());
     }
