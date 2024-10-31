@@ -26,10 +26,7 @@ public:
     // Logs a message with a given log level
     void log(LogLevel level, const string& message);
 
-
-private:
-    ofstream logFile; // File stream for the log file
-
+    ofstream logFile;
     // Converts log level to a string for output
     string levelToString(LogLevel level);
 };

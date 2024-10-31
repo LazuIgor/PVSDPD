@@ -17,8 +17,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
-private:
     Ui::MainWindow *ui;
     QVector<QCPGraph> graphs_;
     QDateTime date_time_start_;
