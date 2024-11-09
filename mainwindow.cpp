@@ -4,6 +4,7 @@
 #include "realiselogger.cpp"
 #include "QFileDialog"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -17,7 +18,10 @@ MainWindow::MainWindow(QWidget *parent)
         Fileparser parser;
         parser.parse(QFileDialog::getOpenFileName(this, "", "", "*.txt"), date_time_start_, date_time_finish_);
         auto data = parser.data_container();
-
+        for(int i = 0; i < ui->mainPlot->graphCount(); i++)
+        {
+            ui->mainPlot->removeGraph(ui->mainPlot->removeGraph(i));
+        }
         for(int i = 0; i < data.length(); i++)
         {
             if(data[i].length() == 0)
@@ -49,12 +53,21 @@ MainWindow::MainWindow(QWidget *parent)
         date_time_finish_ = ui->dateTimeEdit_2->dateTime();
     });
 
-    for (int i = 1; i <= 10; ++i) {
-        QListWidgetItem *item = new QListWidgetItem(QString("Item %1").arg(i));
+    QVector<QString> names {"Температура", "Вакуум", "Скорость вытягивателя", "Производительность мотора", "Рандомная синусойда (надо будет придумать что значит)", "Температура помещения"};
+    for (int i = 0; i < 6; ++i)
+    {
+        QListWidgetItem *item = new QListWidgetItem(names[i]);
         item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
-        item->setCheckState(Qt::Unchecked);
+        item->setCheckState(Qt::Checked);
         ui->traceList->addItem(item);
     }
+    connect(ui->traceList, &QListWidget::itemChanged, this, [=](QListWidgetItem *item){
+        bool visible;
+        item->checkState() == Qt::Checked ? visible = true : visible = false;
+        int graphIndex = ui->traceList->indexFromItem(item).row();
+        ui->mainPlot->graph(graphIndex)->setVisible(visible);
+        ui->mainPlot->replot();
+    });
 
 }
 
