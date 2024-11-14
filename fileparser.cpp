@@ -31,6 +31,7 @@ void Fileparser::parse(QString filename, QDateTime start, QDateTime finish)
                                              time.split(":")[2].toInt()));
         if(start <= dateTime && dateTime <= finish)
         {
+            times.push_back(dateTime);
             data.pop_front();
             data.pop_front();
             for(int index = 0; index <data.length(); index++)

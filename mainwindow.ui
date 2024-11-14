@@ -55,7 +55,7 @@
      </size>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox">
+   <widget class="QSpinBox" name="lineNumberSpinBox">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -71,7 +71,7 @@
      <number>10</number>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="lineNumberLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -87,7 +87,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="startDateLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -100,7 +100,7 @@
      <string>Дата начала</string>
     </property>
    </widget>
-   <widget class="QDateTimeEdit" name="dateTimeEdit">
+   <widget class="QDateTimeEdit" name="startDateTimeEdit">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -110,7 +110,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QDateTimeEdit" name="dateTimeEdit_2">
+   <widget class="QDateTimeEdit" name="finishDateTimeEdit">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -120,7 +120,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="finishDateLabel">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -131,6 +131,25 @@
     </property>
     <property name="text">
      <string>Дата окончания</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="statusLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>221</width>
+      <height>511</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
