@@ -1,22 +1,32 @@
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core gui testlib
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++17
-
-INCLUDEPATH +=  ./thirdparty/qcustomplot
-INCLUDEPATH +=  ./thirdparty
+QMAKE_CXXFLAGS += -Wa,-mbig-obj
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Tests/testlogger.cpp \
+    logger.cpp \
+    fileparser.cpp \
+    logindialog.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qcustomplot.cpp \
+    realiselogger.cpp \
+    Tests/testfileparcer.cpp
 
 HEADERS += \
-    mainwindow.h
+    Tests/testlogger.h \
+    logger.h \
+    fileparser.h \
+    logindialog.h \
+    mainwindow.h \
+    qcustomplot.h \
+    Tests/testfileparcer.h
 
 FORMS += \
     mainwindow.ui
