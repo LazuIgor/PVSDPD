@@ -12,6 +12,7 @@ SOURCES += \
     Tests/testlogger.cpp \
     logger.cpp \
     fileparser.cpp \
+    logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
     qcustomplot.cpp \
@@ -22,6 +23,7 @@ HEADERS += \
     Tests/testlogger.h \
     logger.h \
     fileparser.h \
+    logindialog.h \
     mainwindow.h \
     qcustomplot.h \
     Tests/testfileparcer.h

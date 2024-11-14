@@ -10,6 +10,7 @@ public:
 
     QVector<QVector<double>> data_container();
     void parse(QString filename, QDateTime start, QDateTime finish);
+    QVector<QDateTime> times;
 
 private:
     QVector<QVector<double>> data_container_;
